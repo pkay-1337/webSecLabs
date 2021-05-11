@@ -11,7 +11,7 @@ app.get('/auth',(req,res)=>{
 app.get('/secret',(req,res)=>{
     if(!req.headers.authorization){
         res.set({
-            'WWW-Authenticate':'Basic Realm="Who are You?"'
+            'WWW-Authenticate':'Basic Realm="SuperUser"'
         })
         res.status(401)
         res.end()
