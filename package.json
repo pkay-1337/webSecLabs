@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/pkjhr001/webSecLabs/issues"
   },
-  "homepage": "https://github.com/pkjhr001/webSecLabs#readme"
+  "homepage": "https://github.com/pkjhr001/webSecLabs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
