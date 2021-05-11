@@ -1,34 +1,8 @@
-const express = require('express');
 const path = require('path')
-let app = new express();
+let app = require(path.resolve(process.cwd(),'server.js'))
 
 app.get('/',(req,res)=>{
     res.sendFile(path.resolve(process.cwd(),'index.html'))
 })
-app.get('/auth',(req,res)=>{
-    res.send('Work in progress')
-})
-app.get('/secret',(req,res)=>{
-    if(!req.headers.authorization){
-        res.set({
-            'WWW-Authenticate':'Basic Realm="SuperUser"'
-        })
-        res.status(401)
-        res.end()
-    }
-    console.log(req.headers.authorization)
-    if(req.headers.authorization === 'Basic amh1cmk6IkBqaHVyaSI='){
-        res.set({
-            "Content-type":"text/html;"
-        })
-        res.sendFile(path.resolve(process.cwd(),'secret'))
-    }else{
-        res.set({
-            'WWW-Authenticate':'Basic Realm="Who are You?"'
-        })
-        res.status(401)
-        res.end()
-    }
-    
-})
-app.listen(80)
+
+let SecretLab = require(path.resolve(process.cwd(),'labs/secret/index.js'))
